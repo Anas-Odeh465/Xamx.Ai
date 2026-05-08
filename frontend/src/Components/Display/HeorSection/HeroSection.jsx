@@ -8,7 +8,7 @@ export default function HeroSection() {
   const isSmall = useScreenSize();
 
   return (
-    <section className="relative h-screen  overflow-hidden">
+    <section className="relative h-screen bg-white overflow-hidden">
         {/* canvas style bg inset - 0 absoluted */}
         <NeuralCanvas particleCount={isSmall ? 70 : 180} speed={isSmall ? 0.15 : 0.25} lineDistance={isSmall ? 90 : 200} particleColor="rgba(148,163,184,0.18)" lineColor="148,163,184"/>
         {/* The rest of Hero components - content - above canvas style */}
