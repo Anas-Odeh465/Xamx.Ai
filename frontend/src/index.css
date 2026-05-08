@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+::selection {
+    background-color: #000000;
+    color: #fff;
+}
+
+.logo-font-type {
+  font-family: 'Sora', sans-serif;
+  font-weight: 600;
+}
+
+.nav-link-font-type {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+}
+
+.nav-link-animated-underline {
+  position: relative;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.nav-link-animated-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background-color: #4a5565; 
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-link-animated-underline:hover::after {
+  width: 100%;
+}
+
+.platform-link-font-type-name {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+}
+
+.platform-link-font-type-desc {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+}
+
+
+
+
+
