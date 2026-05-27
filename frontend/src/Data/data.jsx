@@ -1,4 +1,12 @@
-import {ChevronDown, TerminalIcon, Code2Icon, CloudIcon, Sparkles, Smartphone, Blocks, MenuIcon, XIcon, ArrowUpRight, LogIn, UserRound, Zap} from "lucide-react";
+import {ChevronDown, TerminalIcon, Code2Icon, Sparkles, Smartphone, Blocks, MenuIcon, XIcon, ArrowUpRight, LogIn, UserRound, Zap, StarsIcon, PlugZap, Radical, AtomIcon, FlaskConical,
+    Dna, BriefcaseBusiness, RefreshCw, LoaderCircle, Check, ShieldCheck, WandSparkles, Brain, CopyIcon, CheckCheckIcon, 
+} from "lucide-react";
+
+// News icons
+
+export const newsBarIcons = [XIcon, ArrowUpRight, StarsIcon]
+
+// -------------------------------------------
 
 // Quark AI Navigation links & icons
 
@@ -13,9 +21,9 @@ export const navLinks = [
 export const platformMenu = [
     {name: "CLI", description: "AI in your command line", href: "#CLI", icon: <TerminalIcon className="w-4 h-4"/>},
     {name: "IDE", description: "AI with your code editor", href: "#IDE", icon: <Code2Icon className="w-4 h-4"/>},
-    {name: "CLOUD", description: "Keep agent on execution", href: "#CLOUD", icon: <CloudIcon className="w-4 h-4"/>},
+    {name: "Science", description: "Powerful Ai Models Customized for science", href: "#Science", icon: <AtomIcon className="w-4 h-4"/>},
     {name: "API", description: "Frontier, Models + one line link", href: "#API", icon: <Sparkles className="w-4 h-4"/>},
-    {name: "MOBILE", description: "Ease to sniping code quickly", href: "#MOBILE", icon: <Smartphone className="w-4 h-4"/>},
+    {name: "MOBILE", description: "Ease to sniping quickly", href: "#MOBILE", icon: <Smartphone className="w-4 h-4"/>},
     {name: "Builder", description: "Projects builder and editor", href: "#Builder", icon: <Blocks className="w-4 h-4"/>}
 ]
 
@@ -32,8 +40,190 @@ export const leftSectionHeading = [
 ]
 
 export const leftAndRightSectionCTA = [
-    <LogIn className="md:w-6 md:h-6 w-4 h-4"/>, 
-    <ArrowUpRight className="md:w-6 md:h-6 w-4 h-4"/>, 
+    <LogIn className="md:w-5 md:h-5 w-4 h-4"/>, 
+    <ArrowUpRight className="md:w-4 md:h-4 w-4 h-4"/>, 
     <UserRound className="md:w-6 md:h-6 w-4 h-4 text-gray-700"/>, 
     <Zap className="md:w-6 md:h-6 w-4 h-4 text-gray-700"/>, 
 ]
+
+// -------------------------------------------
+
+// Feature Section & icons
+
+export const FeatureSectionCards = [
+    {
+        Heading: "APIs", 
+        icon: PlugZap, 
+        description: "Integrate intelligent APIs into your workflow.",
+        button: "Open Workspace",
+        kit: 'no'
+    },
+    {
+        Heading: "Enterprise", 
+        icon: BriefcaseBusiness, 
+        description: "Scalable AI infrastructure for organizations.",
+        button: "Scale it",
+        kit: 'no'
+    }
+]
+
+export const scienceModels = [
+    {
+        icon: Radical,
+        name: 'Quorex',
+        id: 'Quorex',
+        subject: 'Mathematics',
+        prompts: [
+            "What is the integral of sin(x)?",
+            "Solve the equation x^2 - 5x + 6 = 0.",
+            "What is the derivative of e^(2x)?",
+        ],
+        response: [
+            "The integral of sin(x) is -cos(x) + C, where C is the constant of integration.",
+            "The solutions to the equation x^2 - 5x + 6 = 0 are x = 2 and x = 3.",
+            "The derivative of e^(2x) is 2e^(2x).",
+        ]
+    },
+    {
+        icon: AtomIcon,
+        name: 'Veltron',
+        id: 'Veltron',
+        subject: 'Physics',
+        prompts: [
+            "What is the formula for kinetic energy?",
+            "Explain the concept of relativity.",
+            "What is the speed of light in a vacuum?",
+        ],
+        response: [
+            "The formula for kinetic energy is KE = 0.5 * m * v^2, where m is mass and v is velocity.",
+            "Relativity is a theory in physics that describes the relationship between space and time. It consists of two main theories: special relativity, which deals with objects moving at constant speeds, and general relativity, which describes gravity as the curvature of spacetime caused by mass and energy.",
+            "The speed of light in a vacuum is approximately 299,792 kilometers per second (km/s) or about 186,282 miles per second (mi/s).",
+        ]
+    },
+    {
+        icon: FlaskConical,
+        name: 'Ionara',
+        id: 'Ionara',
+        subject: 'Chemistry',
+        prompts: [
+            "What is the chemical formula for water?",
+            "Explain the concept of pH.",
+            "What is the atomic number of carbon?",
+        ],
+        response: [
+            "The chemical formula for water is H2O, which indicates that each molecule of water consists of two hydrogen atoms and one oxygen atom.",
+            "pH is a measure of the acidity or basicity of a solution. It is defined as the negative logarithm of the hydrogen ion concentration. A pH value less than 7 indicates an acidic solution, a pH value of 7 indicates a neutral solution, and a pH value greater than 7 indicates a basic (alkaline) solution.",
+            "The atomic number of carbon is 6, which means that carbon has 6 protons in its nucleus.",
+        ]
+    },
+    {
+        icon: Dna,
+        name: 'Cellox',
+        id: 'Cellox',
+        subject: 'Biology',
+        prompts: [
+            "What is the structure of DNA?",
+            "Explain the process of photosynthesis.",
+            "What is the function of mitochondria in a cell?",
+        ],
+        response: [
+            "DNA (deoxyribonucleic acid) is a double helix structure composed of two strands of nucleotides. Each nucleotide consists of a sugar molecule, a phosphate group, and a nitrogenous base. The four nitrogenous bases are adenine (A), thymine (T), cytosine (C), and guanine (G). The strands are held together by hydrogen bonds between complementary bases: A pairs with T, and C pairs with G.",
+            "Photosynthesis is the process by which green plants, algae, and some bacteria convert light energy into chemical energy stored in glucose. It occurs in the chloroplasts of plant cells and involves two main stages: the light-dependent reactions, which capture light energy to produce ATP and NADPH, and the Calvin cycle (light-independent reactions), which uses ATP and NADPH to synthesize glucose from carbon dioxide.",
+            "Mitochondria are organelles found in eukaryotic cells that are often referred to as the 'powerhouses' of the cell. Their primary function is to generate adenosine triphosphate (ATP), which is the main energy currency of the cell. Mitochondria also play a role in other cellular processes such as apoptosis (programmed cell death) and calcium signaling.",
+        ]
+    },
+]
+
+export const scienceAsk = [
+    <ArrowUpRight className="md:w-4 md:h-4 w-3 h-3 ml-2 text-white"/>, 
+    RefreshCw, 
+    <LoaderCircle className="md:w-4 md:h-4 w-3 h-3 ml-2 text-black"/>, 
+]
+
+// -------------------------------------------
+
+// Coder Section & icons
+
+export const code= [
+    Code2Icon, LoaderCircle, Check, RefreshCw, CopyIcon, CheckCheckIcon
+]
+
+export const GeneratingPipelines = [
+    {
+        name: "Prompt",
+        icon: Sparkles,
+        operations: [
+            "Analyzing prompt",
+            "Intent recognition",
+            "Context reading",
+            "Context analysis",
+        ]
+    }, 
+    {
+        name: "Thinking",
+        icon: Brain,
+        operations: [
+            "Contextual understanding",
+            "Knowledge retrieval",
+            "Response planning",
+            "Logical reasoning",
+        ]
+    },
+    {
+        name: "Generating",
+        icon: WandSparkles,
+        operations: [
+            "Generating response",
+            "Generating code",
+            "Structuring output",
+            "Streaming tokens",
+        ]
+    },
+    {
+        name: "Testing",
+        icon: FlaskConical,
+        operations: [
+            "Code execution",
+            "Debugging",
+            "Error detection",
+            "Output analysis",
+        ]
+    },
+    {
+        name: "Finalizing",
+        icon: ShieldCheck,
+        operations: [
+            "Optimizing response",
+            "Formatting output",
+            "Final validation",
+            "Streaming completed",
+        ]
+    }
+]
+
+
+   export const generatedCode = `    // npm install xamxai
+
+    // export XAMX_AI_API_KEY="your_api_key_here"
+    
+    import express from "express";
+    import XamxAI from "xamxai";
+    const client = new XamxAI();
+
+    const app = express();
+
+    app.get("/api/chat", async (req, res) => {
+        const response = await client.generate({
+            prompt: "Generate React dashboard",
+            model: "vibex-code"
+        });
+
+        console.log(response.output);
+
+        res.json(response);
+    });
+
+    app.listen(3000);`;
+    
+
+
