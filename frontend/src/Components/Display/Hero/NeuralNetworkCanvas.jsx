@@ -17,9 +17,6 @@ useEffect(() => {
 
   const particles = [];
 
-  // =====================
-  // Create particles
-  // =====================
   function createParticles() {
 
     particles.length = 0;
@@ -39,15 +36,11 @@ useEffect(() => {
     }
   }
 
-  // =====================
-  // Resize canvas
-  // =====================
   function resizeCanvas() {
 
     canvas.width = canvas.offsetWidth;
     canvas.height = canvas.offsetHeight;
 
-    // 🔥 أهم سطر
     createParticles();
   }
 
@@ -55,9 +48,6 @@ useEffect(() => {
 
   window.addEventListener("resize", resizeCanvas);
 
-  // =====================
-  // Animate
-  // =====================
   function animate() {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);

@@ -204,7 +204,7 @@ export const GeneratingPipelines = [
 
    export const generatedCode = `    // npm install xamxai
 
-    // export XAMX_AI_API_KEY="your_api_key_here"
+    // XAMX_AI_API_KEY=your_api_key_here
     
     import express from "express";
     import XamxAI from "xamxai";
@@ -213,17 +213,39 @@ export const GeneratingPipelines = [
     const app = express();
 
     app.get("/api/chat", async (req, res) => {
+        const client = new XamxAI({
+            apiKey: process.env.XAMX_AI_API_KEY
+        });
+
         const response = await client.generate({
-            prompt: "Generate React dashboard",
-            model: "vibex-code"
+            model: "vibex-code",
+            prompt: "Generate React dashboard"
         });
 
         console.log(response.output);
-
-        res.json(response);
     });
 
     app.listen(3000);`;
-    
 
+
+// -------------------------------------------
+
+// Xamx Ai - Interactive Playground & icons
+    
+export const placeholders = [
+  "Help me build a React dashboard",
+  "Explain quantum physics",
+  "Generate a Node.js API",
+  "Solve a math equation",
+  "Teach me machine learning",
+  "Write a python script"
+];
+
+export const promptsList = [
+  "Search with Xamx Ai",
+  "Stories",
+  "API platform",
+  "Research",
+  "Talk with Xamx Ai",
+];
 

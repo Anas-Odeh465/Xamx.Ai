@@ -1,98 +1,13 @@
 import { scienceAsk, scienceModels } from "../../../Data/data";
-import { useState, useEffect, useRef } from "react";
+import useTyping from "../../../Hooks/Feature/useFeatureCard";
 import {LoaderCircle} from "lucide-react";
 
-function useTyping(texts, delay = 0) {
-
-    const [showRefresh, setShowRefresh] = useState(false);
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [isVisible, setIsVisible] = useState(false);
-    const [response, setResponse] = useState("");
-    const sectionRef = useRef(null);
-    let random;
-
-    useEffect(() => {
-        const currentSection = sectionRef.current;
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if(entry.isIntersecting){
-                    setIsVisible(true);
-                    observer.unobserve(currentSection);
-                }
-            },
-            { threshold: 0.4, rootMargin: "-100px"},
-        );
-
-        if(currentSection){
-            observer.observe(currentSection);
-        }
-
-        return () => {
-            if(currentSection){
-                observer.unobserve(currentSection);
-            }
-        }
-    }, []);
-
-    useEffect(() => {
-
-        let timeout;
-        let interval;
-        let charIndex = 0;
-        
-        if(!isVisible) return;
-        
-        const startTyping = () => {
-
-            setShowRefresh(true);
-
-            const current = texts[currentIndex];
-            charIndex = 0;
-
-            setResponse("");
-            interval = setInterval(() => {
-            setResponse(current.slice(0, ++charIndex));
-                if (charIndex >= current.length) {
-                    clearInterval(interval);
-                    timeout = setTimeout(() => {
-                        // textIndex++;
-                        // setCurrentIndex(textIndex % texts.length);
-                        clearInterval(interval);
-                        setShowRefresh(true);
-                    }, 2500);
-                }
-                }, 
-            10);
-        };
-
-        const init = setTimeout(startTyping, delay);
-
-        return () => {
-            clearTimeout(init);
-            clearTimeout(timeout);
-            clearInterval(interval);
-        };
-    }, [currentIndex, texts, delay, isVisible]);
-
-    const refresh = () => {
-
-        do {
-           random =  Math.floor(Math.random() * texts.length);
-
-        } while (random === currentIndex);
-
-        setCurrentIndex(random);
-    }
-
-    return { response, currentIndex, refresh, showRefresh, sectionRef };
-}
-
 function ModelsCard({model, index}){
-    const { response, currentIndex, refresh, showRefresh, sectionRef } = useTyping(model.response, index * 600);
+    const { response, currentIndex, refresh, showRefresh, sectionRef, isTypingFinished } = useTyping(model.response, index * 600);
     const [AccessIcon, RefreshCw] = scienceAsk;
 
     return(
-        <div  ref={sectionRef} key={index} className="group xl:w-xl lg:w-100 md:w-80 sm:w-sm xs:w-xs w-2xs space-y-8 border nav-link-font-type border-gray-200 bg-white/20 backdrop-blur-md p-6 transition-all duration-300 hover:-translate-y-1 hover:bg-white/40 hover:border-gray-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.05)]">
+        <div  ref={sectionRef} key={index} className="group xl:w-xl lg:w-100 md:w-80 sm:w-sm xs:w-xs w-full space-y-8 border nav-link-font-type border-gray-200 bg-white/20 backdrop-blur-md p-6 transition-all duration-300 hover:-translate-y-1 hover:bg-white/40 hover:border-gray-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.05)]">
             <span className="w-12 h-12 bg-gray-100 flex items-center justify-center transition-transform duration-300 group-hover:scale-110 ">
                 <model.icon size={24} />
             </span>
@@ -114,10 +29,15 @@ function ModelsCard({model, index}){
             <div className="w-full h-px bg-gray-300">
                 {/* Separator */}
             </div>
-            <p className="text-gray-600 mt-4 leading-relaxed max-w-xl h-40 overflow-y-auto overflow-x-hidden">
-                {response}
-                {!response && <LoaderCircle className="inline-block animate-spin text-gray-500" size={18}/>}
-            </p>
+            <div className="mt-4 leading-relaxed max-w-xl h-40 overflow-y-auto overflow-x-hidden">
+                {response ? (
+                    <p className="text-gray-600">
+                        {response} {!isTypingFinished && response && <span className="inline-block animate-pulse">|</span>}
+                    </p>
+                ) : (
+                    <LoaderCircle className="inline-block animate-spin text-gray-500" size={18}/>
+                )}
+            </div>
                 <a href="#" className="flex justify-center items-center group/ask bg-black text-white text-[14px] p-2 tracking-wide hover:bg-gray-600">
                 Ask {model.name} 
                 <span className="text-gray-400 transition-transform duration-300 group-hover/ask:translate-x-0.5 group-hover/ask:-translate-y-0.5">
@@ -131,7 +51,7 @@ function ModelsCard({model, index}){
 export default function FeatureSection(){
     return(
         <div className="h-full w-full">
-            <div className="flex flex-col w-full justify-center items-center space-y-6 px-10">
+            <div className="flex flex-col w-full justify-center items-center space-y-6 lg:px-15 px-5 mt-20">
                 {/* Heading title */}
                 <div className="flex justify-start">
                     <h1 className="nav-link-font-type text-3xl backdrop-blur-xs border border-gray-200 p-6 shadow-[0_8px_30px_rgba(0,0,0,0.04)]">Powerful Ai Models Customized for science</h1>

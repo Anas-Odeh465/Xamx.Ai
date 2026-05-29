@@ -1,83 +1,13 @@
-import { code, GeneratingPipelines, generatedCode } from "../../../Data/data"
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { useEffect, useState, useRef } from "react";
+import { code, GeneratingPipelines } from "../../../Data/data"
+import useCoder from "../../../Hooks/code/useCoder";
 
 export default function Coder(){
- 
+
+    const { isCompleted, activeCopy, codeChunks, active, sectionRef, isTypingFinished, handleCopy, handleRefresh} = useCoder();
     const [CodeIcon, LoaderCircle, Check, RefreshCw, CopyIcon, CheckCheckIcon] = code;
-    const [isCompleted, setIsCompleted] = useState(false);
-    const [activeCopy, setActiveCopy] = useState(false);
-    const [isVisible, setIsVisible] = useState(false);
-    const [codeChunks, setCodeChunks] = useState("");
-    const [active, setActive] = useState(0);
-    const sectionRef = useRef(null);
-
-    useEffect(() => {
-        const currentSection = sectionRef.current;
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsVisible(true);
-                    observer.unobserve(currentSection);
-                }
-            },
-            { threshold: 0.2, rootMargin: "-50px" }
-        );
-        if (currentSection) {
-            observer.observe(currentSection);
-        }
-        return () => {
-            if (currentSection) {
-                observer.unobserve(currentSection);
-            }
-        };
-    }, []);
-  
-    useEffect(() => {
-
-        if(!isVisible) return;
-
-        if(isCompleted){
-            let charIndex = 0;
-
-            const interval = setInterval(() => {
-                setCodeChunks(generatedCode.slice(0, charIndex));
-                charIndex++;
-                if(charIndex > generatedCode.length){
-                    clearInterval(interval);
-                }
-                
-            }, 2);
-
-            return () => clearInterval(interval);
-        }
-
-        if(active >= GeneratingPipelines.length - 1){
-            setTimeout(() => {
-                setIsCompleted(true);
-            }, 2000);
-            return;
-        }
-
-        const timeout = setTimeout(() => {
-            setActive(prev => prev + 1);
-        }, 2500);
-
-        return () => clearTimeout(timeout);
-            
-    }, [active, isCompleted, isVisible]);
-
-    const handleCopy = () => {
-        if(isCompleted){
-            navigator.clipboard.writeText(codeChunks);
-            setTimeout(() => {
-                setActiveCopy(false);
-            }, 2000);
-            setActiveCopy(true);
-        }
-    }
-
+    
     return(
         <div className="h-full w-full overflow-x-hidden">
             <div className="flex flex-col w-full justify-center items-center mt-30 mb-30 space-y-6">
@@ -99,7 +29,7 @@ export default function Coder(){
 
                             return(
                                 <div key={processIndex} className="relative flex flex-col lg:flex-row lg:items-start items-center lg:space-y-0 space-y-6" >
-                                    <div className={`relative w-full lg:w-auto max-w-100 flex justify-center items-center z-50 gap-2 px-6 py-3 transition-all duration-300 ease-in-out border ${processIndex === active && !isCompleted ? "animate-pulse" : " "} ${isActive ? "border-white bg-white text-black shadow-[0_0_30px_rgba(255,255,255,0.25)]" : "border-white/30 text-white/30"}`}>
+                                    <div className={`relative w-full lg:w-auto lg:max-w-100 max-w-72 flex justify-center items-center z-50 gap-2 px-6 py-3 transition-all duration-300 ease-in-out border ${processIndex === active && !isCompleted ? "animate-pulse" : " "} ${isActive ? "border-white bg-white text-black shadow-[0_0_30px_rgba(255,255,255,0.25)]" : "border-white/30 text-white/30"}`}>
                                         <process.icon size={15} />
                                         <p className="font-medium md:text-lg text-sm">
                                           {process.name}
@@ -114,7 +44,7 @@ export default function Coder(){
                                             <div className={`lg:flex hidden absolute top-1/2 -translate-y-1/2 right-0  h-3 w-3 transition-all duration-300 ${isActive ? "bg-white" : "bg-white/3 backdrop-blur-xl"}`}/>
                                             <div className={`absolute transition-all duration-100 right-1 transform ${isActive && processIndex < active  ? "bg-white w-px lg:top-0 -top-12 lg:h-36 h-36" : " bg-white/20 w-px h-0"}`}/>
                                         </div>
-                                        <div className="absolute -top-5 left-1/2 -translate-x-1/2 flex flex-wrap  items-center  lg:justify-center lg:mt-0 -mt-6 lg:ml-0 ml-5 text-xs text-white w-full lg:gap-4">
+                                        <div className="absolute lg:-top-5 -top-7 left-1/2 -translate-x-1/2 flex flex-wrap  items-center  lg:justify-center lg:mt-0 -mt-6 lg:ml-0 ml-5 text-white w-full lg:gap-4">
                                             {process.operations.map((operation, index) => (
                                                 <div key={index} className="lg:mt-0 mt-5 lg:mr-0 mr-2 flex items-center  gap-2 whitespace-nowrap transition-all duration-500">
                                                     {isActive ? 
@@ -122,7 +52,7 @@ export default function Coder(){
                                                     ) : 
                                                     <div className="w-3 h-3 rounded-full border border-white/30"/>
                                                     }
-                                                    <p className={`text-[7px] lg:text-xs ${isActive ? "text-white" : "text-white/30"}`}>{operation}</p>
+                                                    <p className={`text-[9px] lg:text-xs ${isActive ? "text-white" : "text-white/30"}`}>{operation}</p>
                                                 </div>
                                             ))}
                                         </div>
@@ -134,11 +64,25 @@ export default function Coder(){
                     <div className={`relative transition-all duration-500 lg:mt-20 mt-30 bottom-0 left-1/2 -translate-x-1/2 w-full border ${isCompleted ? "border-white/90" : "border-white/30"} bg-white/3 backdrop-blur-xl p-8 z-20`}>
                         <div className={`absolute -top-1.5 lg:left-18.75 left-1/2 -translate-x-1/2 h-3 w-3 transition-all duration-300 ${isCompleted ? "bg-white" : "bg-[#080808]"}`}/>
                         <div className="sticky top-0 left-0 flex justify-between items-center w-full bg-[#080808] p-4 mb-6 gap-2 z-50">
-                            <button onClick={handleCopy} className={`transition-all duration-300 ${isCompleted ? "text-white hover:text-white/30  cursor-pointer" : "text-white/30 cursor-not-allowed"}`}>
-                                {activeCopy ? <CheckCheckIcon size={18} /> : <CopyIcon size={18} />}
+                            <button onClick={handleCopy} className={`transition-all duration-300 ${isCompleted ? "text-white  cursor-pointer" : "text-white/30 cursor-not-allowed"}`}>
+                                {activeCopy ? 
+                                    <CheckCheckIcon size={18} /> 
+                                    : 
+                                    <div className="flex justify-center items-center group/copy rounded-sm hover:bg-white/10 w-8 h-8">
+                                        <CopyIcon size={18} />
+                                        {isCompleted ? 
+                                            <div className="absolute top-14 opacity-0 group-hover/copy:opacity-100 transition-opacity pointer-events-none border border-white/30 duration-300 text-xs bg-white/10 text-white px-3 py-1.5 rounded">
+                                                copy
+                                            </div>
+                                            : 
+                                            " "
+                                        }
+                                        
+                                    </div>
+                                }
                             </button>
                             <div className={`text-sm gap-6 flex items-center font-medium ${isCompleted ? "text-white" : "text-white/30"}`}>
-                                {isCompleted ? "JavaScript" : "Generating code..."} 
+                                {isCompleted ? "JavaScript" : ""} 
                                 <CodeIcon size={20} />
                             </div>
                         </div>
@@ -162,13 +106,13 @@ export default function Coder(){
                                     lineHeight: "2",
                                 }}
                                 >
-                                {codeChunks}
+                                {codeChunks + (!isTypingFinished ? " |" : "")}
                             </SyntaxHighlighter>
-                        ): null}
+                        ): null}      
                     </div>
                     <div className={`w-full flex justify-center h-auto items-center my-10 `}>
-                        <button onClick={() => {isCompleted ? (setActive(0), setIsCompleted(false)) : null}} className={`flex items-center w-50 gap-2 mt-10 justify-center  border font-bold px-6 py-3 z-20  ${isCompleted ? " cursor-pointer bg-white text-black hover:bg-white/90" : "cursor-not-allowed border-white/30 text-white/30"}`}>
-                            {isCompleted ? (
+                        <button onClick={handleRefresh} className={`flex items-center w-50 gap-2 mt-10 justify-center  border font-bold px-6 py-3 z-20  ${isCompleted && isTypingFinished ? " cursor-pointer bg-white text-black hover:bg-white/90" : "cursor-not-allowed border-white/30 text-white/30"}`}>
+                            {isCompleted && isTypingFinished ? (
                               <RefreshCw
                                 size={15}
                               />
@@ -178,7 +122,7 @@ export default function Coder(){
                                     className="animate-spin"
                                 />
                             )}
-                           Restart
+                           {isCompleted && isTypingFinished ? "Restart" : ""}
                         </button>
                     </div>
                 </div>

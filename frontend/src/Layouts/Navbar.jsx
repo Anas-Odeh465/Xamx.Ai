@@ -1,6 +1,7 @@
 import {navLinks, platformMenu, mainMenuNavLinksIcon} from '../Data/data';
 import Logo from '../assets/Logo/Quark.Ai - Black.png';
 import {useState, useRef, useEffect} from 'react';
+import { ArrowUpRight } from 'lucide-react';
 
 export default function Navbar(){
     const [hoverPlatform, setHoverPlatform] = useState(false); 
@@ -74,7 +75,7 @@ export default function Navbar(){
             {/* Small Screens - Navigation links (Menu) */}
             <div className='sm:hidden'>
                 <div className={`fixed top-18 bottom-0 left-0 w-full overflow-y-auto transition-all duration-300 ease-out  bg-white transform ${openMenu ? 'translate-y-0' : 'opacity-0 pointer-events-none  translate-y-10'}`}>
-                    <div data-testid="mobile-menu" className='flex flex-col mx-6 '>
+                    <div data-testid="mobile-menu" className='flex flex-col mx-6'>
                         {navLinks?.map((link, index) => (
                             <div key={index} className='p-1 w-full h-full'>
                                 {['LOGIN', 'ACCESS NOW'].includes(link.name) ? (
@@ -104,8 +105,14 @@ export default function Navbar(){
                                 )}
                             </div>
                         ))}
-                        <div className='flex justify-center items-center w-full py-2 text-xs text-gray-400'>
-                            <span>Copyright © 2026 Xamx.Ai Company All rights reserved.</span>
+                        <div className="flex justify-center lg:space-y-2 space-y-0 items-center my-10 mx-1 backdrop-blur-xs border border-gray-200 md:p-4 p-2 shadow-[0_8px_30px_rgba(0,0,0,0.04)] ">
+                            <a href="#" className="group flex items-center gap-2 sm:text-xl text-lg md:py-1.5 py-1 md:px-3 px-1 transition-all duration-300 nav-link-font-type tracking-wider hover:bg-gray-100">
+                                Quick start 
+                                <span className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"><ArrowUpRight /></span>
+                            </a>
+                        </div>
+                        <div className='relative w-full py-2 text-xs text-gray-400 whitespace-nowrap'>
+                            <span className='absolute bottom-0 flex left-1/2 -translate-x-1/2 '>© 2026 Xamx.Ai Company All rights reserved.</span>
                         </div>
                     </div>
                 </div>
