@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React from 'react'
-import Navbar from './Navbar'
+import Navbar from '../Navbar'
 
 
 describe('Mobile Menu', () => {

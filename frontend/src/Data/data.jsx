@@ -1,6 +1,7 @@
 import {ChevronDown, TerminalIcon, Code2Icon, Sparkles, Smartphone, Blocks, MenuIcon, XIcon, ArrowUpRight, LogIn, UserRound, Zap, StarsIcon, PlugZap, Radical, AtomIcon, FlaskConical,
-    Dna, BriefcaseBusiness, RefreshCw, LoaderCircle, Check, ShieldCheck, WandSparkles, Brain, CopyIcon, CheckCheckIcon, 
-} from "lucide-react";
+    Dna, BriefcaseBusiness, RefreshCw, LoaderCircle, Check, ShieldCheck, WandSparkles, Brain, CopyIcon, CheckCheckIcon, Workflow} from "lucide-react";
+import {FaXTwitter, FaYoutube, FaLinkedin, FaGithub, FaInstagram, FaTiktok, FaDiscord, FaFacebookF} from "react-icons/fa6";
+import XamxAiLogo from "../assets/Logo/Xamx.Ai - Black.png";
 
 // News icons
 
@@ -8,7 +9,7 @@ export const newsBarIcons = [XIcon, ArrowUpRight, StarsIcon]
 
 // -------------------------------------------
 
-// Quark AI Navigation links & icons
+// XamxAi Navigation links & icons
 
 export const navLinks = [
     {name: "PLATFORM", href: "#PLATFORM", style: "flex flex-row justify-center items-center gap-1 cursor-pointer", icon: <ChevronDown className="w-3 h-3"/>},
@@ -248,4 +249,109 @@ export const promptsList = [
   "Research",
   "Talk with Xamx Ai",
 ];
+
+
+// -------------------------------------------
+
+// Xamx Ai - API Platform & icons
+
+export const apiPlatformSection = [
+    {
+        icon: XamxAiLogo,
+        name: "Xamx AI",
+        tag: "_General purpose",
+        description: "Use Xamx AI for general-purpose tasks, or switch to specialized models for maximum accuracy and performance."
+    },
+    {
+        icon: AtomIcon,
+        name: "Veltron",
+        tag: "_Physics",
+        description: "Specialized in physics, Veltron provides accurate and detailed responses to physics-related queries, making it an invaluable tool for students, researchers, and enthusiasts alike."
+    },
+    {
+        icon: Dna,
+        name: "Cellox",
+        tag: "_Biology",
+        description: "Tailored for biology, Cellox offers precise and comprehensive answers to biology-related questions, making it an essential resource for students, researchers, and anyone interested in the life sciences."
+    },
+    {
+        icon: FlaskConical,
+        name: "Ionara",
+        tag: "_Chemistry",
+        description: "Designed for chemistry, Ionara delivers accurate and insightful responses to chemistry-related inquiries, making it a valuable asset for students, researchers, and anyone passionate about the chemical sciences."
+    },
+    {
+        icon: Radical,
+        name: "Quorex",
+        tag: "_Mathematics",
+        description: "Focused on mathematics, Quorex provides precise and detailed answers to math-related questions, making it an indispensable tool for students, researchers, and anyone interested in the world of mathematics."
+    },
+    {
+        icon: Workflow,
+        name: "OLL",
+        tag: "_Universal API",
+        description: "OLL (One Line Link) provides a single endpoint to access all models, Here you can seamlessly integrate and utilize the power of Xamx AI's diverse range of models, including Veltron, Cellox, Ionara, Quorex, and more, with consistent performance and ease of use."
+    }
+]
+
+// -------------------------------------------
+
+// Xamx Ai - Footer & icons
+
+export const FooterContent = [
+    {
+        Heading: "Services",
+        Links: [
+            "Models",
+            "Scince Workspace",
+            "Code Workspace",
+            "Enterprise"
+        ]
+    },
+    {
+        Heading: "Company",
+        Links: [
+            "About Us",
+            "Careers",
+            "Contact Us"
+        ]
+    },
+    {
+        Heading: "Resources",
+        Links: [
+            "Documentation",
+            "Tutorials",
+            "Community Forum",
+            "Blog"
+        ]
+    },
+    {
+        Heading: "API Platform",
+        Links: [
+            "API Reference",
+            "Rate Limits",
+            "SDKs",
+            "Pricing",
+        ]
+    },
+    {
+        Heading: "Terms & Policies",
+        Links: [
+            "Terms of Use and Service",
+            "Privacy Policy",
+            "Other Policies"
+        ]
+    }
+]
+
+export const socialMediaLinks = [
+    {icon: <FaXTwitter />, href: "#"},
+    {icon: <FaInstagram />, href: "#"},
+    {icon: <FaFacebookF />, href: "#"},
+    {icon: <FaYoutube />, href: "#"},
+    {icon: <FaLinkedin />, href: "#"},
+    {icon: <FaGithub />, href: "#"},
+    {icon: <FaTiktok />, href: "#"},
+    {icon: <FaDiscord />, href: "#"},
+]
 

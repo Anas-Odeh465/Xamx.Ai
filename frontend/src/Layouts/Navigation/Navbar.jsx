@@ -1,7 +1,7 @@
-import {navLinks, platformMenu, mainMenuNavLinksIcon} from '../Data/data';
-import Logo from '../assets/Logo/Quark.Ai - Black.png';
+import {navLinks, platformMenu, mainMenuNavLinksIcon} from '../../Data/data';
 import {useState, useRef, useEffect} from 'react';
 import { ArrowUpRight } from 'lucide-react';
+import { LogoBlack } from '../../UI/Logo';
 
 export default function Navbar(){
     const [hoverPlatform, setHoverPlatform] = useState(false); 
@@ -39,10 +39,7 @@ export default function Navbar(){
         <nav className={`${openMenu ? 'fixed sm:sticky' : 'sticky'} top-0 left-0 right-0 w-full z-50`}>
             <div className={`flex flex-row justify-between items-center px-2 h-18 ${openMenu ? 'bg-white sm:bg-white/10 sm:backdrop-blur-sm' : 'bg-white/60 backdrop-blur-sm'} border-b border-gray-600/10 z-50`}>
                 {/* Logo section */}
-                <a href="/" className='flex items-center select-none'>
-                    <img onDragStart={(e) => e.preventDefault()} src={Logo} alt="Logo" className="h-12 w-12"/>
-                    <h1 className='logo-font-type text-xl -ml-2'>Xamx.Ai</h1>
-                </a>
+                <LogoBlack />
                 {/* Wide Screens - Navigation links */}
                 <div className='hidden sm:flex justify-center items-center gap-6 text-[12px] text-black nav-link-font-type pr-5'>
                     {navLinks?.map((nav, index) => (
