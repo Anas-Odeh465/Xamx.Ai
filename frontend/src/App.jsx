@@ -1,7 +1,11 @@
-import AppRoute from "./Routes/AppRoute"
+import { SpeedInsights } from "@vercel/speed-insights/react";
+import AppRoute from "./Routes/AppRoute";
 
 export default function App() {
   return (
-    <AppRoute />
+    <>
+      <SpeedInsights />
+      <AppRoute />
+    </>
   )
 }
