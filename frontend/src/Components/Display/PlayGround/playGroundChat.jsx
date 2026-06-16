@@ -2,6 +2,7 @@ import { usePlayGround } from "../../../Hooks/PlayGround/usePlayGroundChat";
 import { NeauralChatLine } from "../Neural-seprator/NeuralLine";
 import { placeholders, promptsList } from "../../../Data/data";
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function PlayGroundChat({prompt}) {
 
@@ -40,9 +41,9 @@ export default function PlayGroundChat({prompt}) {
                     {/* Prompts Buttons */}
                     <div className="flex flex-wrap justify-center items-center lg:gap-4 gap-2">
                         {promptsList.map((prompt, index) => (
-                            <a href={`chat-test?prompt=${encodeURIComponent(prompt)}`} target="_blank" key={index} className="placeHolder-font-type transition-colors duration-300 bg-white hover:bg-gray-100 text-gray-500 border border-gray-300 px-4 py-2  shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
+                            <Link to={`chat-test?prompt=${encodeURIComponent(prompt)}`} target="_blank" key={index} className="placeHolder-font-type transition-colors duration-300 bg-white hover:bg-gray-100 text-gray-500 border border-gray-300 px-4 py-2  shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
                                 {prompt}
-                            </a>
+                            </Link>
                         ))}
                     </div>
                 </div>

@@ -15,7 +15,7 @@ export const navLinks = [
     {name: "PLATFORM", href: "#PLATFORM", style: "flex flex-row justify-center items-center gap-1 cursor-pointer", icon: <ChevronDown className="w-3 h-3"/>},
     {name: "PRICE", href: "#PRICE", style: "nav-link-animated-underline hover:text-gray-600", icon: null},
     {name: "LEARN", href: "#LEARN", style: "nav-link-animated-underline hover:text-gray-600", icon: null},
-    {name: "LOGIN", href: "#LOGIN", style: "border-1 py-1.5 px-3 transition-colors duration-200 border-gray-200 hover:bg-gray-100", icon: null},
+    {name: "LOGIN", href: "/login", style: "border-1 py-1.5 px-3 transition-colors duration-200 border-gray-200 hover:bg-gray-100", icon: null},
     {name: "ACCESS NOW", href: "#ACCESS-NOW", style: "border-1 py-1.5 px-3 transition-colors duration-200 border-black bg-black tracking-wider text-white hover:bg-gray-800 hover:border-gray-800", icon: null}
 ]
 
@@ -204,11 +204,15 @@ export const GeneratingPipelines = [
 
 
    export const generatedCode = `    // npm install xamxai
-
-    // XAMX_AI_API_KEY=your_api_key_here
+    // npm install express dotenv
+    // From the .env XAMX_AI_API_KEY=your_api_key_here
     
-    import express from "express";
     import XamxAI from "xamxai";
+    import express from "express";
+    import dotenv from "dotenv";
+
+    dotenv.config();
+
     const client = new XamxAI();
 
     const app = express();

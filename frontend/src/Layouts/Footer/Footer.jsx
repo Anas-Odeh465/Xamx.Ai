@@ -1,6 +1,7 @@
 import { FooterContent, socialMediaLinks } from "../../Data/data"
 import { ArrowUpRight, LanguagesIcon } from "lucide-react"
 import { LogoWhite } from "../../UI/Logo"
+import { Link } from "react-router-dom"
 
 export default function Footer() {
     return (
@@ -16,10 +17,10 @@ export default function Footer() {
                             <p className="text-sm text-white placeHolder-font-type">{item.Heading}</p>
                             <div className="flex flex-col gap-4 text-xs">
                                 {item.Links.map((link, linkIndex) => (
-                                    <a href="#" key={linkIndex} className="group placeHolder-font-type text-[13px] text-[#afa9a4] hover:text-white transition-colors duration-300">
+                                    <Link to="#" key={linkIndex} className="group placeHolder-font-type text-[13px] text-[#afa9a4] hover:text-white transition-colors duration-300">
                                         {link}
                                         <ArrowUpRight className="hidden group-hover:inline-block ml-1 group-hover:text-white" size={12} />
-                                    </a>
+                                    </Link>
                                 ))}
                             </div>
                         </div>
@@ -40,7 +41,7 @@ export default function Footer() {
                 </div>
                 {/* copy right */}
                 <p className="text-sm text-white placeHolder-font-type">
-                    &copy; {new Date().getFullYear()} Xamx AI. All rights reserved.
+                    &copy; 2026 - {new Date().getFullYear()} Xamx AI. All rights reserved.
                 </p>
                 {/* Language Selector */}
                 <div className="flex items-center cursor-pointer py-2 px-4 bg-white/5 hover:bg-white/10 gap-2">

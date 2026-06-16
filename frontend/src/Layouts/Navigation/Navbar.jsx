@@ -1,7 +1,8 @@
 import {navLinks, platformMenu, mainMenuNavLinksIcon} from '../../Data/data';
 import {useState, useRef, useEffect} from 'react';
-import { ArrowUpRight } from 'lucide-react';
+// import { ArrowUpRight } from 'lucide-react';
 import { LogoBlack } from '../../UI/Logo';
+import { Link } from 'react-router-dom';
 
 export default function Navbar(){
     const [hoverPlatform, setHoverPlatform] = useState(false); 
@@ -62,7 +63,7 @@ export default function Navbar(){
                                 </div>
                             </div>
                         ) : (
-                            <a href={nav.href} className={nav.style} key={index}>{nav.name} </a>
+                            <Link to={nav.href} target="_blank" className={nav.style} key={index}>{nav.name} </Link>
                         ))
                     ))}
                 </div>
@@ -96,21 +97,12 @@ export default function Navbar(){
                                         </div>
                                     ) : (
                                         <div className="flex border-b border-gray-100 my-1 py-2 bg-white">
-                                            <a href={link.href} className='flex items-baseline gap-2 w-full'>{link.name}</a>
+                                            <Link to={link.href} target="_blank" className='flex items-baseline gap-2 w-full'>{link.name}</Link>
                                         </div>
                                     ))
                                 )}
                             </div>
                         ))}
-                        <div className="flex justify-center lg:space-y-2 space-y-0 items-center my-10 mx-1 backdrop-blur-xs border border-gray-200 md:p-4 p-2 shadow-[0_8px_30px_rgba(0,0,0,0.04)] ">
-                            <a href="#" className="group flex items-center gap-2 sm:text-xl text-lg md:py-1.5 py-1 md:px-3 px-1 transition-all duration-300 nav-link-font-type tracking-wider hover:bg-gray-100">
-                                Quick start 
-                                <span className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"><ArrowUpRight /></span>
-                            </a>
-                        </div>
-                        <div className='relative w-full py-2 text-xs text-gray-400 whitespace-nowrap'>
-                            <span className='absolute bottom-0 flex left-1/2 -translate-x-1/2 '>© 2026 Xamx.Ai Company All rights reserved.</span>
-                        </div>
                     </div>
                 </div>
             </div>

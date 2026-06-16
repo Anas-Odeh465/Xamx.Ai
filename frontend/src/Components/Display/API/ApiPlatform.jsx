@@ -1,5 +1,6 @@
 import { apiPlatformSection } from "../../../Data/data";
 import { Boxes, ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function ApiPlatform(){
     return(
@@ -27,9 +28,9 @@ export default function ApiPlatform(){
                                 GROK, GEMINI, DeeBSeeK Models with seamless integration and consistent performance. 
                                 Whether you're building applications, Learning, conducting research, or exploring AI 
                                 capabilities, Xamx API is your gateway to the future of artificial intelligence. . .                        
-                                <a href="#" className="group/exploreAPI pl-2 platform-link-font-type-name hover:text-black text-nowrap hover:underline">
+                                <Link to="#" className="group/exploreAPI pl-2 platform-link-font-type-name hover:text-black text-nowrap hover:underline">
                                     Explore API Documentation <ArrowUpRight className="hidden group-hover/exploreAPI:inline-block group-hover/exploreAPI:text-black" size={14} />
-                                </a>
+                                </Link>
                             </div>
                         </div>
                         {/* Body middle line*/}
@@ -50,10 +51,10 @@ export default function ApiPlatform(){
                                     <p className="text-gray-600 text-sm leading-relaxed w-full max-w-80">
                                         {item.description}
                                     </p>
-                                    <a href="#" className="flex items-center gap-2 group/GET bg-black hover:bg-black/90 text-sm px-4 py-2 text-white w-fit">
+                                    <Link to="#" className="flex items-center gap-2 group/GET bg-black hover:bg-black/90 text-sm px-4 py-2 text-white w-fit">
                                         GET STARTED
                                         <ArrowUpRight className="w-4 h-4 transition-all duration-300 transform group-hover/GET:translate-x-0.5 group-hover/GET:-translate-y-0.5"/>
-                                    </a>
+                                    </Link>
                                 </div>
                             ))}
                         </div>
