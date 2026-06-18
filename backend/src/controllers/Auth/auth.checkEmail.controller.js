@@ -1,11 +1,14 @@
-import prisma from "../../config/prisma.js";
 import { sendEmail } from "../../services/auth/register.mail.js";
+import { generateOTP } from "../../services/otp.service.js";
+import prisma from "../../config/prisma.js";
+import fs from "fs/promises";
 
 export const checkEmail = async (req, res) => {
 
     try{
 
         const {email} = req.body;
+        const code = generateOTP();
 
         const user = await prisma.user.findUnique({
             where: {
@@ -13,14 +16,21 @@ export const checkEmail = async (req, res) => {
             }
         });
 
+        const template = await fs.readFile(
+            './src/templates/otp.HTML',
+            'utf-8'
+        );
+
+        const html = template.replace(
+            "{{OTP_CODE}}",
+            code
+        );
+
         await sendEmail(
-                "anas.odeh.per@gmail.com",
-                "Xamx AI Test",
-                `
-                <h1>Hello Anas 🚀</h1>
-                <p>Brevo is working.</p>
-                `
-            );
+            email,
+            "Verify your email",
+            html
+        );
 
         return res.status(200).json({
             exist: !!user

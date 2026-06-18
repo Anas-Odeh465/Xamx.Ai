@@ -1,8 +1,7 @@
-import { FooterContent, socialMediaLinks } from "../../Data/data";
-import { ArrowUpRight, LanguagesIcon } from "lucide-react";
-import LogoTEMP from "../../assets/Logo/Full Logo Black - SVG - Mail - Template  white.png"
-import { LogoWhite } from "../../UI/Logo";
-import { Link } from "react-router-dom";
+import { FooterContent, socialMediaLinks } from "../../Data/data"
+import { ArrowUpRight, LanguagesIcon } from "lucide-react"
+import { LogoWhite } from "../../UI/Logo"
+import { Link } from "react-router-dom"
 
 export default function Footer() {
     return (
@@ -49,7 +48,6 @@ export default function Footer() {
                     <LanguagesIcon className="text-white" size={16} />
                     <span className="text-sm text-white placeHolder-font-type">English</span>
                     <p className="text-xs text-[#afa9a4]">United States</p>
-                    <img src={LogoTEMP} alt="" />
                 </div>
             </div>
         </div>
