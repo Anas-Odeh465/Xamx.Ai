@@ -1,4 +1,4 @@
-import { apiPlatformSection } from "../../../Data/data";
+import { apiPlatformSection } from "../../../data/data";
 import { Boxes, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 

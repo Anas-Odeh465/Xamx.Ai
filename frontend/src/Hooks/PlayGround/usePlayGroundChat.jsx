@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { placeholders } from "../../Data/data";
+import { placeholders } from "../../data/data";
 
 export function usePlayGround(prompt){
     

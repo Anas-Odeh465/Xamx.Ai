@@ -1,5 +1,5 @@
-import { leftSectionHeading, leftAndRightSectionCTA } from "../../../Data/data";
-import { useScreenSize } from "../../../Hooks/Layouts/useScreenSize";
+import { leftSectionHeading, leftAndRightSectionCTA } from "../../../data/data";
+import { useScreenSize } from "../../../hooks/layouts/useScreenSize";
 import NeuralCanvas from "./NeuralNetworkCanvas";
 import { Link } from "react-router-dom";
 

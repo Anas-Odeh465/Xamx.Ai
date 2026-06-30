@@ -1,4 +1,4 @@
-import { generatedCode, GeneratingPipelines } from "../../Data/data";
+import { generatedCode, GeneratingPipelines } from "../../data/data";
 import { useEffect, useState, useRef } from "react";
 
 export default function useCoder(){

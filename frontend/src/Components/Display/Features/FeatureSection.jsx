@@ -1,4 +1,4 @@
-import { scienceAsk, scienceModels } from "../../../Data/data";
+import { scienceAsk, scienceModels } from "../../../data/data";
 import useTyping from "../../../Hooks/Feature/useFeatureCard";
 import {LoaderCircle} from "lucide-react";
 

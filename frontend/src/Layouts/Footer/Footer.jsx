@@ -1,7 +1,7 @@
-import { FooterContent, socialMediaLinks } from "../../Data/data"
-import { ArrowUpRight, LanguagesIcon } from "lucide-react"
-import { LogoWhite } from "../../UI/Logo"
-import { Link } from "react-router-dom"
+import { FooterContent, socialMediaLinks } from "../../data/data";
+import { ArrowUpRight, LanguagesIcon } from "lucide-react";
+import { LogoWhite } from "../../ui/Logo";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
     return (

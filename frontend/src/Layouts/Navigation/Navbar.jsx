@@ -1,7 +1,6 @@
-import {navLinks, platformMenu, mainMenuNavLinksIcon} from '../../Data/data';
+import {navLinks, platformMenu, mainMenuNavLinksIcon} from '../../data/data';
 import {useState, useRef, useEffect} from 'react';
-// import { ArrowUpRight } from 'lucide-react';
-import { LogoBlack } from '../../UI/Logo';
+import { LogoBlack } from '../../ui/Logo';
 import { Link } from 'react-router-dom';
 
 export default function Navbar(){

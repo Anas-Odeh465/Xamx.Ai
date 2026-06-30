@@ -1,11 +1,11 @@
-import PlayGroundChat from "../../Components/Display/PlayGround/playGroundChat";
-import FeatureSection from "../../Components/Display/Features/FeatureSection";
-import HeroSection from "../../Components/Display/Hero/HeroSection";
-import ApiPlatform from "../../Components/Display/API/ApiPlatform";
-import Coder from "../../Components/Display/code/Coder";
-import Navbar from "../../Layouts/Navigation/Navbar";
-import NewsBar from "../../UI/NewsBar";
-import Footer from "../../Layouts/Footer/Footer";
+import PlayGroundChat from "../../components/display/playGround/playGroundChat";
+import FeatureSection from "../../components/display/features/FeatureSection";
+import HeroSection from "../../components/display/hero/HeroSection";
+import ApiPlatform from "../../components/display/api/ApiPlatform";
+import Coder from "../../components/display/code/Coder";
+import Navbar from "../../layouts/navigation/Navbar";
+import Footer from "../../layouts/footer/Footer";
+import NewsBar from "../../ui/NewsBar";
 
 export const homeRoute = [
     { id: 'news', Component: NewsBar },

@@ -1,6 +1,6 @@
-import { usePlayGround } from "../../../Hooks/PlayGround/usePlayGroundChat";
-import { NeauralChatLine } from "../Neural-seprator/NeuralLine";
-import { placeholders, promptsList } from "../../../Data/data";
+import { usePlayGround } from "../../../hooks/playGround/usePlayGroundChat";
+import { NeauralChatLine } from "../neural-seprator/NeuralLine";
+import { placeholders, promptsList } from "../../../data/data";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 

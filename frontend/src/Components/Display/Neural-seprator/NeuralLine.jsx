@@ -1,5 +1,5 @@
-import { useScreenSize } from "../../../Hooks/Layouts/useScreenSize";
-import NeuralCanvas from "../Hero/NeuralNetworkCanvas";
+import { useScreenSize } from "../../../hooks/layouts/useScreenSize";
+import NeuralCanvas from "../hero/NeuralNetworkCanvas";
 
 export function NeauralChatLine(){
 

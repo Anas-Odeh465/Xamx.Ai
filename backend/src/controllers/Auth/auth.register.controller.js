@@ -1,48 +1,31 @@
-import { Hashing } from "../../middleware/auth.hash.password.js";
-import prisma from "../../config/prisma.js";
+import { registerService } from "../../services/auth/register.service.js";
 
-export const register = async (req, res) => {
-
+export const registerControl = async (req, res) => {
     try{
+        const {email, finalPassword} = req.body;
 
-        const {email, password} = req.body;
-
-        const user = await prisma.user.findUnique({
-            where: {
-                email
-            }
-        })
-
-        if(!user){
-
-            const hashed_pass = await Hashing(password);
-
-            const newUser = await prisma.user.create({
-                data: {
-                    email,
-                    password: hashed_pass
-                }
-            })
-
-            return res.status(201).json({
-                success: true,
-                message: "Account registerd successfuly."
-            });
-
-        }
-        
-        else{
-            return res.status(409).json({
+        if(!email || typeof email !== "string"){
+            return res.status(400).json({
                 success: false,
-                message: "Email already exists."
+                message: "Email required!"
             });
         }
+
+        if(!finalPassword){
+            return res.status(400).json({
+                success: false,
+                message: "Password required!"
+            });
+        }
+
+        const result = await registerService(email, finalPassword);
+
+        return res.status(200).json(result);
         
     }catch(error){
-
-        console.log(error);
         return res.status(500).json({
-            message: "Internal server error"
+            success: false,
+            message: "Something went wrong!"
         });
     }
 }

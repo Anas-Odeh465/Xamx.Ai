@@ -1,8 +1,10 @@
-import CheckEmail from "../Pages/Login/CheckEmail";
-import LoginOrRegister from "../Pages/Login/LoginOrRegister";
-import ChatTest from "../Pages/Test_chat/chattest";
-import LoginTest from "../Pages/Test/LoginTest";
-import Home from "../Pages/Home/Home";
+import SetupProfile from "../pages/login/SetupProfile";
+import ChatTest from "../pages/test-chat/chattest";
+import VerifyEmail from "../pages/verify/Verify";
+import LoginTest from "../pages/test/LoginTest";
+import Register from "../pages/login/Register";
+import Email from "../pages/login/Email";
+import Home from "../pages/home/Home";
 
 export const dataRoute = [
     {
@@ -15,18 +17,22 @@ export const dataRoute = [
     },
     {
         path: "/login",
-        element: <CheckEmail />
-    },
-    {
-        path: "/login/password",
-        element: <LoginOrRegister />
+        element: <Email />
     },
     {
         path: "/create-account/password",
-        element: <LoginOrRegister />
+        element: <Register />
     },
     {
         path: "/test/page-test",
         element: <LoginTest />
+    },
+    {
+        path: "/create-account/verify-email",
+        element: <VerifyEmail />
+    },
+    {
+        path: "/create-account/setup-profile",
+        element: <SetupProfile />
     },
 ]

@@ -18,16 +18,22 @@ model EmailVerification {
   hashedPassword    String
   verificationCode  String
   createdAt         DateTime               @default(now())
+  attempts          Int        @default(0)
+  resendCount       Int        @default(0)
+  lastEmailSentAt   DateTime?
   expiresAt         DateTime
   updatedAt         DateTime   @updatedAt
 }
 
 model User {
-  id         String    @id       @default(uuid())
-  email      String    @unique
-  password   String
-  isVerified Boolean             @default(false)
-  provider   String              @default("local")
-  createdAt  DateTime            @default(now())
-  updatedAt  DateTime            @updatedAt
+  id                String    @id       @default(uuid())
+  email             String    @unique
+  password          String
+  name              String              @default("no_name")
+  age               Int                 @default(0)
+  isVerified        Boolean             @default(false)
+  provider          String              @default("local")
+  createdAt         DateTime            @default(now())
+  updatedAt         DateTime            @updatedAt
+  profileCompleted  Boolean             @default(false)
 }
