@@ -1,5 +1,5 @@
 import SetupProfile from "../pages/login/SetupProfile";
-import ChatTest from "../pages/test-chat/chattest";
+import ChatTest from "../pages/test-chat/ChatTest";
 import VerifyEmail from "../pages/verify/Verify";
 import LoginTest from "../pages/test/LoginTest";
 import Register from "../pages/login/Register";

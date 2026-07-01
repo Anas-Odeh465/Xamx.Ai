@@ -1,7 +1,7 @@
 import { handleAuthRegistration } from "../../controllers/auth/register.controller.js";
 import { InfoIcon, Loader, EyeIcon, EyeClosedIcon, EditIcon} from "lucide-react";
 import { useRegistration } from "../../hooks/auth/register.js";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import LoginFooter from "../../ui/LoginFooter.jsx";
 import { LogoBlack } from "../../ui/Logo";
 import { useEffect } from "react";

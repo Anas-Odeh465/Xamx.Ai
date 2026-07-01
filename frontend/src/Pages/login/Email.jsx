@@ -7,7 +7,6 @@ import { InfoIcon, Loader} from "lucide-react";
 import { LogoBlack } from "../../ui/Logo.jsx";
 import { useEffect, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
 
 export default function Email(){
     const [isLoading, setIsLoading] = useState(false);

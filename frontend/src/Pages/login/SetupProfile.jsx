@@ -3,12 +3,11 @@ import { useSetup } from "../../hooks/auth/setup.js";
 import { InfoIcon, Loader } from "lucide-react";
 import LoginFooter from "../../ui/LoginFooter";
 import { LogoBlack } from "../../ui/Logo";
-import { Link } from "react-router-dom";
 import { useEffect } from "react";
 
 export default function SetupProfile(){
 
-    const {isSubmitting, setIsSubmitting, errors, setErrors, data, setData, navigate, ageRef, email, handleChange, validateInputs} = useSetup();
+    const {isSubmitting, setIsSubmitting, errors, setErrors, data, navigate, ageRef, email, handleChange, validateInputs} = useSetup();
 
     const submit = async (e) => {
         if(isSubmitting) return;

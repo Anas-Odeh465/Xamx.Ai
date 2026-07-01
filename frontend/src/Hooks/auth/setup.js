@@ -47,5 +47,5 @@ export const useSetup = () => {
         return true;
     }
 
-    return {isSubmitting, setIsSubmitting, errors, setErrors, data, setData, navigate, ageRef, email, handleChange, validateInputs};
+    return {isSubmitting, setIsSubmitting, errors, setErrors, data, navigate, ageRef, email, handleChange, validateInputs};
 }
