@@ -1,7 +1,7 @@
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { code, GeneratingPipelines } from "../../../data/data"
-import useCoder from "../../../Hooks/code/useCoder";
+import useCoder from "../../../hooks/code/useCoder";
 
 export default function Coder(){
 

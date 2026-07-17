@@ -1,15 +1,11 @@
 import api from "../axios";
 
 const login = async (data) => {
-    try{
-        const response = await api.post(
-            'auth/login', 
-            data
-        );
-        return response.data;
-    }catch(error){
-        throw error;
-    }
+    const response = await api.post(
+        'auth/login', 
+        data
+    );
+    return response.data;
 }
 
-export default Login;
+export default login;

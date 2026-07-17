@@ -1,5 +1,3 @@
-import { useLocation, useNavigate } from "react-router-dom";
-import { useState, useRef, useEffect } from "react";
 import verify from "../../apis/auth/verify";
 
 export const handleCheckCode = async ({e, setError, setSubmitCheck, inputsRef, otpInput, email, navigate, setOtpInput, exist}) => {
@@ -17,17 +15,21 @@ export const handleCheckCode = async ({e, setError, setSubmitCheck, inputsRef, o
             otp
         });
 
-        if(!result?.redirect) return;
-
-        navigate(
-            result?.redirect,
-            {
-                state: {
-                    email,
-                    exist
+        if(result?.redirect){
+            navigate(
+                result?.redirect || "/login",
+                {
+                    state: {
+                        email,
+                        exist
+                    }
                 }
-            }
-        )
+            )
+        }
+
+        else{
+            setError("No page to redirect to. Please try again.");
+        }
 
     }catch(error){
         setOtpInput(new Array(6).fill(""));

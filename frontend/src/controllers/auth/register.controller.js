@@ -12,7 +12,10 @@ export const handleAuthRegistration = async ({e, isSubmitted, setIsSubmitted, em
             finalPassword: password.password.trim()
         });
 
-        if(!result?.redirect) setErrors({server: "Something went wrong. Please try again."});
+        if(!result?.redirect){
+            setErrors({server: "Something went wrong. Please try again."});
+            return;
+        }
 
         navigate(
             result?.redirect,
@@ -24,6 +27,7 @@ export const handleAuthRegistration = async ({e, isSubmitted, setIsSubmitted, em
                 }
             }
         );
+        
     }catch(error){
         const serverError = error?.response?.data?.message || "Something went wrong. Please try again.";
         setErrors({server: serverError});

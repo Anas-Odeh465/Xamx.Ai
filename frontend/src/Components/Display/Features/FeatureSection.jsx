@@ -1,5 +1,5 @@
 import { scienceAsk, scienceModels } from "../../../data/data";
-import useTyping from "../../../Hooks/Feature/useFeatureCard";
+import useTyping from "../../../hooks/feature/useFeatureCard";
 import {LoaderCircle} from "lucide-react";
 
 function ModelsCard({model, index}){

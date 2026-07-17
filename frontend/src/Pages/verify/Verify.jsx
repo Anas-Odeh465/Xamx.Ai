@@ -3,11 +3,10 @@ import { useVerifyEmail } from "../../hooks/auth/verify.js";
 import LoginFooter from "../../ui/LoginFooter.jsx";
 import { InfoIcon, Loader } from "lucide-react";
 import { LogoBlack } from "../../ui/Logo";
-import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import ResendCode from "./Resend";
 
-export default function VerifyEmail (){
+export default function Verify (){
 
     const {otpInput, setOtpInput, submitCheck, setSubmitCheck, error, setError, navigate, inputsRef, email, exist, title, handleChange, handlePasteCode, validateSubmittedCode} = useVerifyEmail();
 

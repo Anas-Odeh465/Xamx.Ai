@@ -44,17 +44,26 @@ export const resendService = async (email) => {
     if(!verification){
         return{
             success: false,
-            status: 400,
+            status: 200,
             exist: false,
-            message: "Verification request not found!"
+            redirect: "/login",
+            message: "Verification request not found, please create new account!"
         };
     } 
 
     if(verification.resendCount >= 5){
+
+        await prisma.emailVerification.delete({
+            where:{
+                email
+            }
+        });
+        
         return {
             success: false,
-            status: 400,
-            message: "Maximum resend limit reached!"
+            status: 200,
+            redirect: "/login",
+            message: "Maximum resend limit reached, please create a new account!"
         }
     }
 

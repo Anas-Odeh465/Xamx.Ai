@@ -16,6 +16,7 @@ export const resendControl = async (req, res) => {
         return res.status(result.status || 400).json({
             success: result.success,
             message: result.message,
+            redirect: result.redirect,
         });
         
     }catch(error){

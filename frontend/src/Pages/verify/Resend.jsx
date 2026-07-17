@@ -1,15 +1,18 @@
 import { handleResend } from "../../controllers/auth/resend.controller";
 import { useResend } from "../../hooks/auth/resend";
+import { useNavigate } from "react-router-dom";
 import { InfoIcon } from "lucide-react";
 
 export default function ResendCode (){
+    const navigate = useNavigate();
+
     const {error, setError, timeLeft, setTimeLeft, email, startTimer, validate} = useResend();
 
     const resend = async (e) => {
         if(timeLeft > 0) return;
         if(!validate()) return;
         
-        await handleResend({e, error, setError, timeLeft, setTimeLeft, email, startTimer});
+        await handleResend({e, error, setError, timeLeft, setTimeLeft, email, startTimer, navigate});
     }
 
     return(

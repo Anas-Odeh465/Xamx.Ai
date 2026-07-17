@@ -1,7 +1,7 @@
 import {ChevronDown, TerminalIcon, Code2Icon, Sparkles, Smartphone, Blocks, MenuIcon, XIcon, ArrowUpRight, LogIn, UserRound, Zap, StarsIcon, PlugZap, Radical, AtomIcon, FlaskConical,
     Dna, BriefcaseBusiness, RefreshCw, LoaderCircle, Check, ShieldCheck, WandSparkles, Brain, CopyIcon, CheckCheckIcon, Workflow} from "lucide-react";
 import {FaXTwitter, FaYoutube, FaLinkedin, FaGithub, FaInstagram, FaTiktok, FaDiscord, FaFacebookF} from "react-icons/fa6";
-import XamxAiLogo from "../assets/Logo/Xamx.Ai - Black.png";
+import XamxAiLogo from "../assets/logo/Xamx.Ai - Black.png";
 
 // News icons
 

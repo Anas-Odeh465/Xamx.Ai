@@ -20,9 +20,10 @@ model EmailVerification {
   createdAt         DateTime               @default(now())
   attempts          Int        @default(0)
   resendCount       Int        @default(0)
-  lastEmailSentAt   DateTime?
+  lastEmailSentAt   DateTime
   expiresAt         DateTime
   updatedAt         DateTime   @updatedAt
+  sessionExpiresAt  DateTime
 }
 
 model User {
@@ -36,4 +37,5 @@ model User {
   createdAt         DateTime            @default(now())
   updatedAt         DateTime            @updatedAt
   profileCompleted  Boolean             @default(false)
+  sessionExpiresAt  DateTime
 }

@@ -26,7 +26,7 @@ export const verifyService = async (email, otp) => {
             verified: true,
             completed: true,
             redirect: "/login/password",
-            message: "User already exist and verified!"
+            message: "User already exists!"
         }
     }
 
@@ -38,10 +38,10 @@ export const verifyService = async (email, otp) => {
 
     if(!verification){
         return {
-            status: 400, 
+            status: 200, 
             success: false,
             exist: false,
-            redirect: "/login/password",
+            redirect: "/login",
             message: "Verification request not found!"
         };
     }
@@ -68,7 +68,7 @@ export const verifyService = async (email, otp) => {
             return {
                 status: 400, 
                 success: false,
-                message: "Too many requests. Please register for new account!"
+                message: "Too many attempts. Please create a new account!"
             };
         }
 

@@ -1,4 +1,4 @@
-import { newsBarIcons } from "../Data/data";
+import { newsBarIcons } from "../data/data";
 import { useState } from "react";
 
 export default function NewsBar(){

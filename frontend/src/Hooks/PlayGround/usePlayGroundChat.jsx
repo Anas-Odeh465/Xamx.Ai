@@ -12,6 +12,7 @@ export function usePlayGround(prompt){
     const Greeting = "How can I help you?";
     const textareaRef = useRef(null);
     const sectionRef = useRef(null);
+    const timeoutRef = useRef(null);
 
     useEffect(() => {
         const currentSection = sectionRef.current;
@@ -46,7 +47,7 @@ export function usePlayGround(prompt){
 
                 setIsAnimating(true);
                 
-                setTimeout(() => {
+                timeoutRef.current = setTimeout(() => {
 
                     setPlaceholderIndex(prev => prev === placeholders.length - 1 ? 0 : prev + 1);
 
@@ -56,7 +57,13 @@ export function usePlayGround(prompt){
 
             }, 3500);
 
-            return () => clearInterval(interval);
+            return () => {
+                clearInterval(interval);
+                if (timeoutRef.current) {
+                    clearTimeout(timeoutRef.current);
+                    timeoutRef.current = null;
+                }
+            };
         }
 
     }, [isVisible, isTypingFinished]);
