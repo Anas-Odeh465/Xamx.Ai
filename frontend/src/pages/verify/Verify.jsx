@@ -2,7 +2,7 @@ import { handleCheckCode } from "../../controllers/auth/verify.controller.js";
 import { useVerifyEmail } from "../../hooks/auth/verify.js";
 import LoginFooter from "../../ui/LoginFooter.jsx";
 import { InfoIcon, Loader } from "lucide-react";
-import { LogoBlack } from "../../ui/Logo";
+import { LogoBlack } from "../../ui/Logo.jsx";
 import { useEffect } from "react";
 import ResendCode from "./Resend";
 

@@ -1,7 +1,7 @@
 import { InfoIcon, Loader, EyeIcon, EyeClosedIcon, EditIcon} from "lucide-react";
 import { useLogin } from "../../hooks/auth/login.js";
 import LoginFooter from "../../ui/LoginFooter.jsx";
-import { LogoBlack } from "../../ui/Logo";
+import { LogoBlack } from "../../ui/Logo.jsx";
 import { useEffect } from "react";
 
 export default function Login(){

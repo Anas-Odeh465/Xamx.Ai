@@ -1,8 +1,8 @@
 import { handleSubmit } from "../../controllers/auth/setup.controller.js";
 import { useSetup } from "../../hooks/auth/setup.js";
 import { InfoIcon, Loader } from "lucide-react";
-import LoginFooter from "../../ui/LoginFooter";
-import { LogoBlack } from "../../ui/Logo";
+import LoginFooter from "../../ui/LoginFooter.jsx";
+import { LogoBlack } from "../../ui/Logo.jsx";
 import { useEffect } from "react";
 
 export default function SetupProfile(){
